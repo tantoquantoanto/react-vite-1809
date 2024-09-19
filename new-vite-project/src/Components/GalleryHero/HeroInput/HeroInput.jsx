@@ -3,26 +3,28 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-const HeroInput = ({query, setQuery}) => {
+const HeroInput = ({ setQuery, setMaxPicNumber}) => {
     const onChangeInput = (e) => {
         setQuery(e.target.value)
 
     }
 
+    const onChangeMaxPictures = (e) => {
+        setMaxPicNumber(e.target.value)
+
+    }
+
 
     return (
-        <InputGroup className="mb-3">
-        <DropdownButton
-          variant="outline-secondary"
-          title="Dropdown"
-          id="input-group-dropdown-1"
+        <InputGroup>
+        <Form.Select
+        onChange={onChangeMaxPictures}
         >
-          <Dropdown.Item href="#">Action</Dropdown.Item>
-          <Dropdown.Item href="#">Another action</Dropdown.Item>
-          <Dropdown.Item href="#">Something else here</Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item href="#">Separated link</Dropdown.Item>
-        </DropdownButton>
+            <option value="">Immagini per pagina</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="24">24</option>
+        </Form.Select>
         <Form.Control
         placeholder='cerca immagine'
         onChange={onChangeInput}

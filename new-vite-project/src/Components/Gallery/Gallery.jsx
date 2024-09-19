@@ -4,10 +4,11 @@ import SingleImage from "../SingleImage/SingleImage"
 const Gallery = ({images}) => {
     return (
         <Container>
-            <Row className="gap-1">
-                {images && images.map(image => (
+            <Row className="gy-3">
+                {images && images.map((image,index) => (
                     <SingleImage
                     imgUrl={image.src.landscape}
+                    key={index}
                     />
                 ))
                     

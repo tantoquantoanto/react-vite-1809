@@ -3,11 +3,13 @@ import { Col } from "react-bootstrap"
 const SingleImage = ({imgUrl, }) => {
     return(
         <Col
-        sm = {12}
+        sm 
         md = {4}
         lg = {3}>
 
-       <img src={imgUrl} alt="" />
+       <img 
+       className=" h-100 w-100 object-fit-cover"
+       src={imgUrl} alt="" />
         </Col>
 
     )

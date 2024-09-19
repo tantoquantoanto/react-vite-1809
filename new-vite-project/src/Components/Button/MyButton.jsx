@@ -2,14 +2,14 @@
 
 
 
-const Button = ({btntext, btnStyle}) => {
+const MyButton = ({btntext, btnStyle, getDataFromApi}) => {
     return (
         <button
-        onClick={getDataFromApi()}
+        onClick={getDataFromApi}
         className={`btn btn-info ${btnStyle}`}>
             {btntext}
         </button>
     )
 }
 
-export default Button
+export default MyButton

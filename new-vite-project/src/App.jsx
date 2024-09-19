@@ -6,10 +6,12 @@ import PEXELS_API_KEY from "./endpoints/api";
 import Gallery from "./Components/Gallery/Gallery";
 
 const App = () => {
-  const [apiData, setApiData] = useState(null);
+  
   const [query, setQuery] = useState("nature");
+  const [maxPicNumber, setMaxPicNumber] = useState(3)
 
-  const endpoint = `https://api.pexels.com/v1/search?query=${query}`;
+  const endpoint = `https://api.pexels.com/v1/search?query=${query}&per_page=${maxPicNumber}`;
+  const [apiData, setApiData] = useState(null);
 
   const getDataFromApi = async () => {
     try {
@@ -27,15 +29,21 @@ const App = () => {
 
   useEffect(() => {
     getDataFromApi()
+    
 
-  }, [])
+  }, [maxPicNumber])
   console.log(apiData)
+
+ 
 
   return (
     <>
       <GalleryHero
       query= {query} 
-      setQuery={setQuery}/>
+      setQuery={setQuery}
+      getDataFromApi={getDataFromApi}
+      setMaxPicNumber={setMaxPicNumber}
+      />
       
       
       {apiData &&
